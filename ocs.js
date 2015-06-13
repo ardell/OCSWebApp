@@ -13,6 +13,8 @@ $(function() {
       model: Patient
     //When you make a new patientList, you should be able to filter it!
     });
+
+    var PAGE_SIZE = 100;
    
     var HeaderView = Parse.View.extend({
       events: {
@@ -97,11 +99,15 @@ $(function() {
         console.log("Rendering PLV...");
         var that = this;
 
-        patients.fetch({  
-          success: function(patients)
-          {           
-            this.studies = _.uniq(patients.pluck("study"));
+        var q = new Parse.Query(Patient);
+        q.descending("examDate");
+        q.find({
+          success: function(arr)
+          {
+            // Add patients from Parse to the `patients` PatientList collection
+            patients.reset(arr);
 
+            this.studies = _.uniq(patients.pluck("study"));
             var template = _.template($('#patient-list-template').html(),  
               {patients: patients.models.reverse(), studies: this.studies, selected:"None"}); // patients.models
             that.$el.html(template); //inject html into the bound element
@@ -149,8 +155,8 @@ $(function() {
         console.log(JSON.stringify(options, null, 4));
         var q = new Parse.Query(Patient);
         q.equalTo("study", options.studyName);
-        q.limit(100);
-        q.skip(100*options.pageNumber);
+        q.limit(PAGE_SIZE);
+        q.skip(PAGE_SIZE*options.pageNumber);
         q.descending("examDate");
         q.find({
           success: function(patients)
