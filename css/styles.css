@@ -1,0 +1,32 @@
+h2{
+  background-color:#009854;
+  color:#FFFFFF;
+  text-align:center;
+}
+
+p{
+  padding-left:2em;
+}
+
+a{
+  color:#009854;
+}
+
+#rotate {
+ -webkit-transform: rotate(90deg);
+ -moz-transform: rotate(90deg);
+ -o-transform: rotate(90deg);
+ -ms-transform: rotate(90deg);
+ transform: rotate(90deg);
+}
+
+#rotatePlus {
+ -webkit-transform: rotate(90deg);
+ -moz-transform: rotate(90deg);
+ -o-transform: rotate(90deg);
+ -ms-transform: rotate(90deg);
+ transform: rotate(90deg);
+ padding-left:10%;
+ padding-top: 10%;
+}
+
