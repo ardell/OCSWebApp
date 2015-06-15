@@ -12,24 +12,29 @@
 </head>
 
 <body>
-  <div class="container">
-    <div ng-controller="ApplicationController">
-      <div class="row">
-        <div class="col-xs-9">
-          <h1>Ocular CellScope Data Portal</h1>
+  <div ng-controller="ApplicationController">
+    <div class="container">
+      <nav class="navbar navbar-default">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#/">Ocular CellScope Data Portal</a>
         </div>
 
-        <div class="col-xs-3">
-          <a href="#/log-in" ng-hide="user.isLoggedIn">Log In</a>
-          <a href="#/log-out" ng-show="user.isLoggedIn">Log Out</a>
-        </div>
-      </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="right" ng-hide="user.isLoggedIn"><a href="#/log-in">Log In</a></li>
+            <li class="right" ng-show="user.isLoggedIn"><a href="#/log-out">Log Out</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </nav>
 
       <div ng-view></div>
     </div>
-
-    <div class="header"></div>
-    <div class="page"></div>
   </div>
 
   <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
