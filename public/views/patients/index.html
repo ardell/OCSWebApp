@@ -1,0 +1,82 @@
+<div class="row">
+  <div class="col-md-4">
+    <h4>
+      Study
+      <select ng-model="filterByStudy">
+        <option>All</option>
+        <option ng-repeat="study in studies">{{study}}</option>
+      </select>
+    </h4>
+  </div>
+
+  <div class="col-md-4">
+    <h4 class="sort">
+      Sort By: 
+      <select ng-model="sortBy">
+        <option value="examDate">Date</option>
+        <option value="lastName">Name</option>
+        <option value="patientID">Patient ID</option>
+      </select>
+    </h4>
+  </div>
+</div>
+
+<table class="table table-striped table-hover">  
+  <thead>
+    <tr>
+      <th>Patient ID </th>
+      <th>Patient Name</th>
+      <th>CellScope</th>
+      <th>Exam #</th>
+      <th>User</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr ng-show="loading" ng-cloak>
+      <td colspan=6>Loading...</td>
+    </tr>
+
+    <tr ng-hide="loading" ng-repeat="patient in patients" ng-cloak>
+      <td>
+        <a href="#/patients/{{patient.id}}">
+          {{patient.get("patientID")}}
+        </a>
+      </td>
+
+      <td>
+        <a href="#/patients/{{patient.id}}">
+          {{patient.get('lastName')}}, {{patient.get('firstName')}}
+        </a>
+      </td>
+
+      <td>
+        <a href="#/patients/{{patient.id}}">
+          {{patient.get('cellscope')}}
+        </a>
+      </td>
+
+      <td>
+        <a href="#/patients/{{patient.id}}">
+          {{patient.get('examID')}}
+        </a>
+      </td>
+
+      <td>
+        <a href="#/patients/{{patient.id}}">
+          {{patient.get('user')}}
+        </a>
+      </td>
+      
+      <td>
+        <a href="#/patients/{{patient.id}}">
+          {{patient.get('examDate')}}
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 class="row" id="next"><u>Next</u></h1>
+

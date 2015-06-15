@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-xs-9">
+    <h1>
+      <img class="img-responsive" id="rotatePlus" src="{{eyeImage.get('Image').url()}}">
+    </h1>  
+  </div>
+
+  <div class="col-xs-3">
+    <h4><u>Patient</u></h4>
+    ID: {{patient.get("patientID")}}<br>
+    Name: {{patient.get("lastName")}}, {{patient.get("firstName")}}<br>
+    DOB: {{patient.get("patientDOB")}}<br>
+    Phone: {{patient.get("phoneNumber")}}<br>
+
+    <h4><u>Exam</u></h4>
+    Exam #: {{patient.get("examID")}}<br>
+    CellScope: {{patient.get("cellscope")}}<br>
+    User: {{patient.get("user")}}<br>
+    Study: {{patient.get("study")}}<br>
+    Date: {{patient.get("examDate")}}<br>
+
+    <h4><u>Photo</u></h4>
+    Eye: {{eyeImage.get("Eye")}}<br>
+    Position: {{eyeImage.get("Position")}}<br>
+    Illumination: {{eyeImage.get("illumination")}}<br>
+    Focus: {{eyeImage.get("focus")}}<br>
+    Exposure: {{eyeImage.get("exposure")}}<br>
+    ISO: {{eyeImage.get("iso")}}<br>
+    White Bal.: {{eyeImage.get("whiteBalance")}}<br>
+    Flash Duration: {{eyeImage.get("flashDuration")}}<br>
+    Flash Delay: {{eyeImage.get("flashDelay")}}<br>
+    App Version: {{eyeImage.get("appVersion")}}<br>
+
+    <br>
+    <h4><a download="{{eyeImage.get("Image")}}" href="{{eyeImage.get('Image').url()}}"><u>Download Image</u></a></h4>
+  </div>
+</div>
+

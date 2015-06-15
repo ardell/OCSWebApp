@@ -1,0 +1,207 @@
+<iframe id="my_iframe" style="display:none;"></iframe>
+
+<div class="row">
+  <div class="col-md-10">
+    <div align="left">
+      <a href="#/patients"><u>Home</u></a>
+    </div>
+  </div>
+
+  <div class="col-md-2">
+    <a ng-click="download()" style="text-align: right; cursor: pointer;">
+      <u>Download All</u>
+    </a>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <h2>Patient Info</h2>
+    ID: {{patient.get('patientID')}}<br>
+    Name: {{patient.get('lastName')}}, {{patient.get('firstName')}}<br>
+    DOB: {{patient.get('patientDOB')}}<br>
+    Phone: {{patient.get('phoneNumber')}}<br>
+  </div>
+
+  <div class="col-md-6">
+    <h2>Exam Info</h2>
+    Exam #: {{patient.get("examID")}}<br>
+    CellScope: {{patient.get("cellscope")}}<br>
+    User: {{patient.get("user")}}<br>
+    Study: {{patient.get("study")}}<br>
+    Date: {{patient.get("examDate")}}<br>
+    Notes: {{patient.get("notes")}}<br>
+  </div>
+</div>
+
+<br>
+<br>
+
+<div class="row">
+  <div class="col-md-12">
+    <h2 align="center">OD</h2>
+  </div>
+</div>
+
+<div class="row" align="center">
+  <div class="col-xs-1">
+    <!--MARGIN-->
+  </div>
+
+  <div class="col-xs-2">
+    Superior   
+    <div class="row" ng-repeat="eyeImage in images.OD.superior"> 
+      <br>
+
+      <a href="#/patients/{{patient.id}}/images/{{eyeImage.id}}">
+        <img class="img-responsive" id="rotate" ng-src="{{eyeImage.thumbnailUrl()}}">
+      </a>
+
+      <br>
+      <br>
+    </div>
+  </div>
+
+  <div class="col-xs-2">
+    Nasal
+    <div class="row" ng-repeat="eyeImage in images.OD.nasal"> 
+      <br>
+
+      <a href="#/patients/{{patient.id}}/images/{{eyeImage.id}}">
+        <img class="img-responsive" id="rotate" ng-src="{{eyeImage.thumbnailUrl()}}">
+      </a>
+
+      <br>
+      <br>
+    </div>
+  </div>
+
+  <div class="col-xs-2">
+    Central
+    <div class="row" ng-repeat="eyeImage in images.OD.central"> 
+      <br>
+
+      <a href="#/patients/{{patient.id}}/images/{{eyeImage.id}}">
+        <img class="img-responsive" id="rotate" ng-src="{{eyeImage.thumbnailUrl()}}">
+      </a>
+
+      <br>
+      <br>
+    </div>
+  </div>
+
+  <div class="col-xs-2">
+    Temporal
+    <div class="row" ng-repeat="eyeImage in images.OD.temporal"> 
+      <br>
+
+      <a href="#/patients/{{patient.id}}/images/{{eyeImage.id}}">
+        <img class="img-responsive" id="rotate" ng-src="{{eyeImage.thumbnailUrl()}}">
+      </a>
+
+      <br>
+      <br>
+    </div>
+  </div>
+
+  <div class="col-xs-2">
+    Inferior
+    <div class="row" ng-repeat="eyeImage in images.OD.inferior"> 
+      <br>
+
+      <a href="#/patients/{{patient.id}}/images/{{eyeImage.id}}">
+        <img class="img-responsive" id="rotate" ng-src="{{eyeImage.thumbnailUrl()}}">
+      </a>
+
+      <br>
+      <br>
+    </div>
+  </div>
+
+  <div class="col-xs-1">
+    <!--MARGIN-->
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+  <h2 align="center">OS</h2>
+  </div>
+</div>
+
+<div class="row" align="center">
+  <div class="col-xs-1">
+    <!--MARGIN-->
+  </div>
+
+  <div class="col-xs-2">
+    Superior   
+    <div class="row" ng-repeat="eyeImage in images.OS.superior"> 
+      <br>
+
+      <a href="#/patients/{{patient.id}}/images/{{eyeImage.id}}">
+        <img class="img-responsive" id="rotate" ng-src="{{eyeImage.thumbnailUrl()}}">
+      </a>
+
+      <br>
+      <br>
+    </div>
+  </div>
+
+  <div class="col-xs-2">
+    Nasal
+    <div class="row" ng-repeat="eyeImage in images.OS.nasal"> 
+      <br>
+
+      <a href="#/patients/{{patient.id}}/images/{{eyeImage.id}}">
+        <img class="img-responsive" id="rotate" ng-src="{{eyeImage.thumbnailUrl()}}">
+      </a>
+
+      <br>
+      <br>
+    </div>
+  </div>
+
+  <div class="col-xs-2">
+    Central
+    <div class="row" ng-repeat="eyeImage in images.OS.central"> 
+      <br>
+
+      <a href="#/patients/{{patient.id}}/images/{{eyeImage.id}}">
+        <img class="img-responsive" id="rotate" ng-src="{{eyeImage.thumbnailUrl()}}">
+      </a>
+
+      <br>
+      <br>
+    </div>
+  </div>
+
+  <div class="col-xs-2">
+    Temporal
+    <div class="row" ng-repeat="eyeImage in images.OS.temporal"> 
+      <br>
+
+      <a href="#/patients/{{patient.id}}/images/{{eyeImage.id}}">
+        <img class="img-responsive" id="rotate" ng-src="{{eyeImage.thumbnailUrl()}}">
+      </a>
+
+      <br>
+      <br>
+    </div>
+  </div>
+
+  <div class="col-xs-2">
+    Inferior
+    <div class="row" ng-repeat="eyeImage in images.OS.inferior"> 
+      <br>
+
+      <a href="#/patients/{{patient.id}}/images/{{eyeImage.id}}">
+        <img class="img-responsive" id="rotate" ng-src="{{eyeImage.thumbnailUrl()}}">
+      </a>
+
+      <br>
+      <br>
+    </div>
+  </div>
+</div>
+
