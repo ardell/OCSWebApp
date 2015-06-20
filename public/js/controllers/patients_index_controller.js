@@ -2,7 +2,8 @@ angular
   .module('ocs')
   .controller('PatientsIndexController', function($scope, Patient) {
     var PAGE_SIZE        = 100000;
-    $scope.filterByStudy = 'All';
+    $scope.filterByStudy = 'Any study';
+    $scope.search        = '';
     $scope.sortBy        = 'examDate';
     $scope.sortDirection = 'descending';
     $scope.patients      = [];
@@ -13,7 +14,7 @@ angular
       var query = new Parse.Query(Patient);
       query.limit(PAGE_SIZE);
       query[$scope.sortDirection]($scope.sortBy);
-      if ($scope.filterByStudy != 'All') {
+      if ($scope.filterByStudy != 'Any study') {
         query.equalTo("study", $scope.filterByStudy);
       }
       $scope.loading = true;
