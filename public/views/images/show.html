@@ -1,38 +1,177 @@
+<div class="row" style="margin-bottom: 18px;">
+  <div class="col-xs-6">
+    <div align="left">
+      <a ng-href="#/patients/{{patient.id}}" class="btn btn-default">
+        <i class="glyphicon glyphicon-arrow-left"></i>
+        All Images
+      </a>
+    </div>
+  </div>
+</div>
+
 <div class="row">
-  <div class="col-xs-9">
-    <h1>
+  <div class="col-lg-8 col-md-8 col-sm-12 text-center">
+    <div class="eye-image-big">
       <img class="img-responsive img-rotate-plus" src="{{eyeImage.get('Image').url()}}">
-    </h1>
+    </div>
+
+    <a class="btn btn-default" download="{{eyeImage.get("Image")}}" href="{{eyeImage.get('Image').url()}}">
+      <i class="glyphicon glyphicon-download-alt"></i>
+      Download Image
+    </a>
   </div>
 
-  <div class="col-xs-3">
-    <h4><u>Patient</u></h4>
-    ID: {{patient.get("patientID")}}<br>
-    Name: {{patient.get("lastName")}}, {{patient.get("firstName")}}<br>
-    DOB: {{patient.get("patientDOB")}}<br>
-    Phone: {{patient.get("phoneNumber")}}<br>
+  <div class="col-lg-4 col-md-4 col-sm-12">
+    <div>
+      <h4 class="section-header">Patient</h4>
 
-    <h4><u>Exam</u></h4>
-    Exam #: {{patient.get("examID")}}<br>
-    CellScope: {{patient.get("cellscope")}}<br>
-    User: {{patient.get("user")}}<br>
-    Study: {{patient.get("study")}}<br>
-    Date: {{patient.get("examDate")}}<br>
+      <form class="form-horizontal">
+        <div class="form-group">
+          <label class="col-xs-4 control-label">ID</label>
+          <div class="col-xs-8">
+            <p class="form-control-static">{{patient.get('patientID')}}</p>
+          </div>
+        </div>
 
-    <h4><u>Photo</u></h4>
-    Eye: {{eyeImage.get("Eye")}}<br>
-    Position: {{eyeImage.get("Position")}}<br>
-    Illumination: {{eyeImage.get("illumination")}}<br>
-    Focus: {{eyeImage.get("focus")}}<br>
-    Exposure: {{eyeImage.get("exposure")}}<br>
-    ISO: {{eyeImage.get("iso")}}<br>
-    White Bal.: {{eyeImage.get("whiteBalance")}}<br>
-    Flash Duration: {{eyeImage.get("flashDuration")}}<br>
-    Flash Delay: {{eyeImage.get("flashDelay")}}<br>
-    App Version: {{eyeImage.get("appVersion")}}<br>
+        <div class="form-group">
+          <label class="col-xs-4 control-label">Name</label>
+          <div class="col-xs-8">
+            <p class="form-control-static">{{patient.get('lastName')}}, {{patient.get('firstName')}}</p>
+          </div>
+        </div>
 
-    <br>
-    <h4><a download="{{eyeImage.get("Image")}}" href="{{eyeImage.get('Image').url()}}"><u>Download Image</u></a></h4>
+        <div class="form-group">
+          <label class="col-xs-4 control-label">DOB</label>
+          <div class="col-xs-8">
+            <p class="form-control-static">{{patient.get('patientDOB')}}</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-xs-4 control-label">Phone</label>
+          <div class="col-xs-8">
+            <p class="form-control-static">{{patient.get('phoneNumber')}}</p>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div>
+      <h4 class="section-header">Exam</h4>
+
+      <form class="form-horizontal">
+        <div class="form-group">
+          <label class="col-xs-4 control-label">Exam #</label>
+          <div class="col-xs-8">
+            <p class="form-control-static">{{patient.get('examID')}}</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-xs-4 control-label">CellScope</label>
+          <div class="col-xs-8">
+            <p class="form-control-static">{{patient.get('cellscope')}}</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-xs-4 control-label">User</label>
+          <div class="col-xs-8">
+            <p class="form-control-static">{{patient.get('user')}}</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-xs-4 control-label">Study</label>
+          <div class="col-xs-8">
+            <p class="form-control-static">{{patient.get('study')}}</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-xs-4 control-label">Date</label>
+          <div class="col-xs-8">
+            <p class="form-control-static">{{patient.get('examDate')}}</p>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div>
+      <h4 class="section-header">Photo</h4>
+
+      <form class="form-horizontal">
+        <div class="form-group">
+          <label class="col-xs-4 control-label">Eye</label>
+          <div class="col-xs-8">
+            <p class="form-control-static">{{eyeImage.get('Eye')}}</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-xs-4 control-label">Position</label>
+          <div class="col-xs-8">
+            <p class="form-control-static">{{eyeImage.get('Position')}}</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-xs-4 control-label">Illumination</label>
+          <div class="col-xs-8">
+            <p class="form-control-static">{{eyeImage.get('illumination')}}</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-xs-4 control-label">Focus</label>
+          <div class="col-xs-8">
+            <p class="form-control-static">{{eyeImage.get('focus')}}</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-xs-4 control-label">Exposure</label>
+          <div class="col-xs-8">
+            <p class="form-control-static">{{eyeImage.get('exposure')}}</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-xs-4 control-label">ISO</label>
+          <div class="col-xs-8">
+            <p class="form-control-static">{{eyeImage.get('iso')}}</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-xs-4 control-label">White Bal.</label>
+          <div class="col-xs-8">
+            <p class="form-control-static">{{eyeImage.get('whiteBalance')}}</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-xs-4 control-label">Flash Duration</label>
+          <div class="col-xs-8">
+            <p class="form-control-static">{{eyeImage.get('flashDuration')}}</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-xs-4 control-label">Flash Delay</label>
+          <div class="col-xs-8">
+            <p class="form-control-static">{{eyeImage.get('flashDelay')}}</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-xs-4 control-label">App Version</label>
+          <div class="col-xs-8">
+            <p class="form-control-static">{{eyeImage.get('appVersion')}}</p>
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
 

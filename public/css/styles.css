@@ -17,6 +17,7 @@ a{
   -o-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   transform: rotate(90deg);
+  padding: 20px 0;
 }
 
 .img-rotate-plus {
@@ -25,15 +26,15 @@ a{
   -o-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   transform: rotate(90deg);
-  padding-left:10%;
-  padding-top: 10%;
+  padding: 94px 0;
 }
 
 .eye-image {
-  width: 100%;
-  height: 163px;
-  padding-top: 21px;
   margin-bottom: 9px;
+}
+
+.eye-image-big {
+  margin-bottom: 18px;
 }
 
 .sort-arrow {
