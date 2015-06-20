@@ -4,6 +4,10 @@ require 'sinatra'
 
 module OCS
   class App < Sinatra::Base
+    use Rack::Auth::Basic, "Please sign in" do |username, password|
+      username == 'fletcher' and password == 'cellscope'
+    end
+
     set :public_folder, File.dirname(__FILE__) + '/public'
 
     get '/' do
