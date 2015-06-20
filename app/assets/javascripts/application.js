@@ -11,6 +11,12 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
-//= require turbolinks
+//= require vendor/parse-1.3.0.min
+//= require vendor/underscore-1.4.2.min
+//= require vendor/angular-1.3.15.min
+//= require vendor/angular-route-1.3.15.min
+//= require module
+//= require routes
+//= require_tree ./models
+//= require_tree ./controllers
 //= require_tree .

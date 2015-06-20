@@ -1,14 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="ocs">
 <head>
-  <title>OCSWebApp</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <meta charset="utf-8">
+
+  <title>Ocular CellScope</title>
+  <meta name="description" content="Ocular CellScope web interface">
+  <meta name="viewport" content="width=device-width">
+
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
-
-<%= yield %>
-
+  <%= yield %>
 </body>
 </html>
+
