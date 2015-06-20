@@ -19,6 +19,7 @@ angular
             $scope.patients = _.map(arr, function(obj) {
               var attrs = obj.attributes;
               delete attrs.EyeImages;
+              attrs.id       = obj.id;
               attrs.fullName = [attrs.lastName, attrs.firstName].join(', ');
 
               if (attrs.examDate) {
