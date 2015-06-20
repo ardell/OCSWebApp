@@ -8,7 +8,7 @@
           </span>
 
           <select ng-model="filterByStudy" ng-disabled="studies.length < 1" id="filter-by-study" class="form-control select-with-addon">
-            <option>Any study</option>
+            <option value="">Any study</option>
             <option ng-repeat="study in studies">{{study}}</option>
           </select>
         </div>
@@ -94,7 +94,7 @@
           <td colspan=6>Loading...</td>
         </tr>
 
-        <tr ng-hide="loading" ng-repeat="patient in patients | filter:search | orderBy:sortColumn:!sortAscending" ng-cloak>
+        <tr ng-hide="loading" ng-repeat="patient in patients | filter:{ study: filterByStudy } | filter:search | orderBy:sortColumn:!sortAscending" ng-cloak>
           <td>
             <a href="#/patients/{{patient.id}}">
               {{patient.patientID}}
