@@ -17,7 +17,7 @@ a{
   -o-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   transform: rotate(90deg);
-  padding: 20px 0;
+  padding: 24px 0;
 }
 
 .img-rotate-plus {
