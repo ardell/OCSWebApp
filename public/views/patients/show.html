@@ -1,36 +1,103 @@
 <iframe id="my_iframe" style="display:none;"></iframe>
 
-<div class="row">
-  <div class="col-md-10">
+<div class="row" style="margin-bottom: 18px;">
+  <div class="col-xs-6">
     <div align="left">
-      <a href="#/patients"><u>Home</u></a>
+      <a href="#/patients" class="btn btn-default">
+        <i class="glyphicon glyphicon-arrow-left"></i>
+        All Patients
+      </a>
     </div>
   </div>
 
-  <div class="col-md-2">
-    <a ng-click="download()" style="text-align: right; cursor: pointer;">
-      <u>Download All</u>
+  <div class="col-xs-6 text-right">
+    <a class="btn btn-default" ng-click="download()">
+      <i class="glyphicon glyphicon-download-alt"></i>
+      Download All
     </a>
   </div>
 </div>
 
 <div class="row">
   <div class="col-md-6">
-    <h2>Patient Info</h2>
-    ID: {{patient.get('patientID')}}<br>
-    Name: {{patient.get('lastName')}}, {{patient.get('firstName')}}<br>
-    DOB: {{patient.get('patientDOB')}}<br>
-    Phone: {{patient.get('phoneNumber')}}<br>
+    <h4 class="section-header">Patient Info</h4>
+
+    <form class="form-horizontal">
+      <div class="form-group">
+        <label class="col-xs-2 control-label">ID</label>
+        <div class="col-xs-10">
+          <p class="form-control-static">{{patient.get('patientID')}}</p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-xs-2 control-label">Name</label>
+        <div class="col-xs-10">
+          <p class="form-control-static">{{patient.get('lastName')}}, {{patient.get('firstName')}}</p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-xs-2 control-label">DOB</label>
+        <div class="col-xs-10">
+          <p class="form-control-static">{{patient.get('patientDOB')}}</p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-xs-2 control-label">Phone</label>
+        <div class="col-xs-10">
+          <p class="form-control-static">{{patient.get('phoneNumber')}}</p>
+        </div>
+      </div>
+    </form>
   </div>
 
   <div class="col-md-6">
-    <h2>Exam Info</h2>
-    Exam #: {{patient.get("examID")}}<br>
-    CellScope: {{patient.get("cellscope")}}<br>
-    User: {{patient.get("user")}}<br>
-    Study: {{patient.get("study")}}<br>
-    Date: {{patient.get("examDate")}}<br>
-    Notes: {{patient.get("notes")}}<br>
+    <h4 class="section-header">Exam Info</h4>
+    <form class="form-horizontal">
+      <div class="form-group">
+        <label class="col-xs-2 control-label">Exam</label>
+        <div class="col-xs-10">
+          <p class="form-control-static">{{patient.get('examID')}}</p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-xs-2 control-label">CellScope</label>
+        <div class="col-xs-10">
+          <p class="form-control-static">{{patient.get('cellscope')}}</p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-xs-2 control-label">User</label>
+        <div class="col-xs-10">
+          <p class="form-control-static">{{patient.get('user')}}</p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-xs-2 control-label">Study</label>
+        <div class="col-xs-10">
+          <p class="form-control-static">{{patient.get('study')}}</p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-xs-2 control-label">Date</label>
+        <div class="col-xs-10">
+          <p class="form-control-static">{{patient.get('examDate')}}</p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-xs-2 control-label">Notes</label>
+        <div class="col-xs-10">
+          <p class="form-control-static">{{patient.get('notes')}}</p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -39,169 +106,123 @@
 
 <div class="row">
   <div class="col-md-12">
-    <h2 align="center">OD</h2>
+    <h4 class="section-header text-center">OD</h4>
   </div>
 </div>
 
 <div class="row" align="center">
-  <div class="col-xs-1">
+  <div class="col-md-1">
     <!--MARGIN-->
   </div>
 
-  <div class="col-xs-2">
-    Superior   
-    <div class="row" ng-repeat="eyeImage in images.OD.superior"> 
-      <br>
-
+  <div class="col-xs-12 col-sm-6 col-md-2">
+    <h4 class="section-header text-center">Superior</h4>
+    <div class="row eye-image" ng-repeat="eyeImage in images.OD.superior">
       <a href="#/patients/{{patient.id}}/images/{{eyeImage.id}}">
-        <img class="img-responsive" id="rotate" ng-src="{{eyeImage.thumbnailUrl()}}">
+        <img class="img-responsive img-rotate" ng-src="{{eyeImage.thumbnailUrl()}}">
       </a>
-
-      <br>
-      <br>
     </div>
   </div>
 
-  <div class="col-xs-2">
-    Nasal
-    <div class="row" ng-repeat="eyeImage in images.OD.nasal"> 
-      <br>
-
+  <div class="col-xs-12 col-sm-6 col-md-2">
+    <h4 class="section-header text-center">Nasal</h4>
+    <div class="row eye-image" ng-repeat="eyeImage in images.OD.nasal">
       <a href="#/patients/{{patient.id}}/images/{{eyeImage.id}}">
-        <img class="img-responsive" id="rotate" ng-src="{{eyeImage.thumbnailUrl()}}">
+        <img class="img-responsive img-rotate" ng-src="{{eyeImage.thumbnailUrl()}}">
       </a>
-
-      <br>
-      <br>
     </div>
   </div>
 
-  <div class="col-xs-2">
-    Central
-    <div class="row" ng-repeat="eyeImage in images.OD.central"> 
-      <br>
-
+  <div class="col-xs-12 col-sm-6 col-md-2">
+    <h4 class="section-header text-center">Central</h4>
+    <div class="row eye-image" ng-repeat="eyeImage in images.OD.central">
       <a href="#/patients/{{patient.id}}/images/{{eyeImage.id}}">
-        <img class="img-responsive" id="rotate" ng-src="{{eyeImage.thumbnailUrl()}}">
+        <img class="img-responsive img-rotate" ng-src="{{eyeImage.thumbnailUrl()}}">
       </a>
-
-      <br>
-      <br>
     </div>
   </div>
 
-  <div class="col-xs-2">
-    Temporal
-    <div class="row" ng-repeat="eyeImage in images.OD.temporal"> 
-      <br>
-
+  <div class="col-xs-12 col-sm-6 col-md-2">
+    <h4 class="section-header text-center">Temporal</h4>
+    <div class="row eye-image" ng-repeat="eyeImage in images.OD.temporal">
       <a href="#/patients/{{patient.id}}/images/{{eyeImage.id}}">
-        <img class="img-responsive" id="rotate" ng-src="{{eyeImage.thumbnailUrl()}}">
+        <img class="img-responsive img-rotate" ng-src="{{eyeImage.thumbnailUrl()}}">
       </a>
-
-      <br>
-      <br>
     </div>
   </div>
 
-  <div class="col-xs-2">
-    Inferior
-    <div class="row" ng-repeat="eyeImage in images.OD.inferior"> 
-      <br>
-
+  <div class="col-xs-12 col-sm-6 col-md-2">
+    <h4 class="section-header text-center">Inferior</h4>
+    <div class="row eye-image" ng-repeat="eyeImage in images.OD.inferior">
       <a href="#/patients/{{patient.id}}/images/{{eyeImage.id}}">
-        <img class="img-responsive" id="rotate" ng-src="{{eyeImage.thumbnailUrl()}}">
+        <img class="img-responsive img-rotate" ng-src="{{eyeImage.thumbnailUrl()}}">
       </a>
-
-      <br>
-      <br>
     </div>
   </div>
 
-  <div class="col-xs-1">
+  <div class="col-md-1">
     <!--MARGIN-->
   </div>
 </div>
 
 <div class="row">
   <div class="col-md-12">
-  <h2 align="center">OS</h2>
+    <h4 class="section-header text-center">OS</h4>
   </div>
 </div>
 
 <div class="row" align="center">
-  <div class="col-xs-1">
+  <div class="col-md-1">
     <!--MARGIN-->
   </div>
 
-  <div class="col-xs-2">
-    Superior   
-    <div class="row" ng-repeat="eyeImage in images.OS.superior"> 
-      <br>
-
+  <div class="col-xs-12 col-sm-6 col-md-2">
+    <h4 class="section-header text-center">Superior</h4>
+    <div class="row eye-image" ng-repeat="eyeImage in images.OS.superior">
       <a href="#/patients/{{patient.id}}/images/{{eyeImage.id}}">
-        <img class="img-responsive" id="rotate" ng-src="{{eyeImage.thumbnailUrl()}}">
+        <img class="img-responsive img-rotate" ng-src="{{eyeImage.thumbnailUrl()}}">
       </a>
-
-      <br>
-      <br>
     </div>
   </div>
 
-  <div class="col-xs-2">
-    Nasal
-    <div class="row" ng-repeat="eyeImage in images.OS.nasal"> 
-      <br>
-
+  <div class="col-xs-12 col-sm-6 col-md-2">
+    <h4 class="section-header text-center">Nasal</h4>
+    <div class="row eye-image" ng-repeat="eyeImage in images.OS.nasal">
       <a href="#/patients/{{patient.id}}/images/{{eyeImage.id}}">
-        <img class="img-responsive" id="rotate" ng-src="{{eyeImage.thumbnailUrl()}}">
+        <img class="img-responsive img-rotate" ng-src="{{eyeImage.thumbnailUrl()}}">
       </a>
-
-      <br>
-      <br>
     </div>
   </div>
 
-  <div class="col-xs-2">
-    Central
-    <div class="row" ng-repeat="eyeImage in images.OS.central"> 
-      <br>
-
+  <div class="col-xs-12 col-sm-6 col-md-2">
+    <h4 class="section-header text-center">Central</h4>
+    <div class="row eye-image" ng-repeat="eyeImage in images.OS.central">
       <a href="#/patients/{{patient.id}}/images/{{eyeImage.id}}">
-        <img class="img-responsive" id="rotate" ng-src="{{eyeImage.thumbnailUrl()}}">
+        <img class="img-responsive img-rotate" ng-src="{{eyeImage.thumbnailUrl()}}">
       </a>
-
-      <br>
-      <br>
     </div>
   </div>
 
-  <div class="col-xs-2">
-    Temporal
-    <div class="row" ng-repeat="eyeImage in images.OS.temporal"> 
-      <br>
-
+  <div class="col-xs-12 col-sm-6 col-md-2">
+    <h4 class="section-header text-center">Temporal</h4>
+    <div class="row eye-image" ng-repeat="eyeImage in images.OS.temporal">
       <a href="#/patients/{{patient.id}}/images/{{eyeImage.id}}">
-        <img class="img-responsive" id="rotate" ng-src="{{eyeImage.thumbnailUrl()}}">
+        <img class="img-responsive img-rotate" ng-src="{{eyeImage.thumbnailUrl()}}">
       </a>
-
-      <br>
-      <br>
     </div>
   </div>
 
-  <div class="col-xs-2">
-    Inferior
-    <div class="row" ng-repeat="eyeImage in images.OS.inferior"> 
-      <br>
-
+  <div class="col-xs-12 col-sm-6 col-md-2">
+    <h4 class="section-header text-center">Inferior</h4>
+    <div class="row eye-image" ng-repeat="eyeImage in images.OS.inferior">
       <a href="#/patients/{{patient.id}}/images/{{eyeImage.id}}">
-        <img class="img-responsive" id="rotate" ng-src="{{eyeImage.thumbnailUrl()}}">
+        <img class="img-responsive img-rotate" ng-src="{{eyeImage.thumbnailUrl()}}">
       </a>
-
-      <br>
-      <br>
     </div>
+  </div>
+
+  <div class="col-md-1">
+    <!--MARGIN-->
   </div>
 </div>
 
