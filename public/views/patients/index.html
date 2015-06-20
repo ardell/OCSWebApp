@@ -33,12 +33,59 @@
     <table class="table table-striped table-hover">
       <thead>
         <tr>
-          <th>Patient ID </th>
-          <th>Patient Name</th>
-          <th>CellScope</th>
-          <th>Exam #</th>
-          <th>User</th>
-          <th>Date</th>
+          <th>
+            <a class="clickable" ng-click="sort('patientID')">
+              Patient ID
+              <span ng-class="{ 'sort-container': true, dropup: sortAscending, active: (sortColumn == 'patientID') }">
+                <span class="caret sort-arrow"></span>
+              </span>
+            </a>
+          </th>
+
+          <th>
+            <a class="clickable" ng-click="sort('fullName')">
+              Patient Name
+              <span ng-class="{ 'sort-container': true, dropup: sortAscending, active: (sortColumn == 'fullName') }">
+                <span class="caret sort-arrow"></span>
+              </span>
+            </a>
+          </th>
+
+          <th>
+            <a class="clickable" ng-click="sort('cellscope')">
+              CellScope
+              <span ng-class="{ 'sort-container': true, dropup: sortAscending, active: (sortColumn == 'fullName') }">
+                <span class="caret sort-arrow"></span>
+              </span>
+            </a>
+          </th>
+
+          <th>
+            <a class="clickable" ng-click="sort('examID')">
+              Exam #
+              <span ng-class="{ 'sort-container': true, dropup: sortAscending, active: (sortColumn == 'examID') }">
+                <span class="caret sort-arrow"></span>
+              </span>
+            </a>
+          </th>
+
+          <th>
+            <a class="clickable" ng-click="sort('user')">
+              User
+              <span ng-class="{ 'sort-container': true, dropup: sortAscending, active: (sortColumn == 'user') }">
+                <span class="caret sort-arrow"></span>
+              </span>
+            </a>
+          </th>
+
+          <th>
+            <a class="clickable" ng-click="sort('examDate')">
+              Date
+              <span ng-class="{ 'sort-container': true, dropup: sortAscending, active: (sortColumn == 'examDate') }">
+                <span class="caret sort-arrow"></span>
+              </span>
+            </a>
+          </th>
         </tr>
       </thead>
 
@@ -47,40 +94,40 @@
           <td colspan=6>Loading...</td>
         </tr>
 
-        <tr ng-hide="loading" ng-repeat="patient in patients | filter:search" ng-cloak>
+        <tr ng-hide="loading" ng-repeat="patient in patients | filter:search | orderBy:sortColumn:!sortAscending" ng-cloak>
           <td>
             <a href="#/patients/{{patient.id}}">
-              {{patient.get("patientID")}}
+              {{patient.patientID}}
             </a>
           </td>
 
           <td>
             <a href="#/patients/{{patient.id}}">
-              {{patient.get('lastName')}}, {{patient.get('firstName')}}
+              {{patient.fullName}}
             </a>
           </td>
 
           <td>
             <a href="#/patients/{{patient.id}}">
-              {{patient.get('cellscope')}}
+              {{patient.cellscope}}
             </a>
           </td>
 
           <td>
             <a href="#/patients/{{patient.id}}">
-              {{patient.get('examID')}}
+              {{patient.examID}}
             </a>
           </td>
 
           <td>
             <a href="#/patients/{{patient.id}}">
-              {{patient.get('user')}}
+              {{patient.user}}
             </a>
           </td>
 
           <td>
             <a href="#/patients/{{patient.id}}">
-              {{patient.get('examDate')}}
+              {{patient.formattedExamDate}}
             </a>
           </td>
         </tr>
