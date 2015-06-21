@@ -12,12 +12,14 @@ class PatientsController < ApplicationController
     files      = _info_for_files
 
     require 'open-uri'
-    file_mappings = files.map do |file|
-      [
-        open(file[:url]),
-        [ zip_prefix, file[:eye], file[:position], file[:filename] ].join('/'),
-      ]
-    end
+    file_mappings = files
+      .lazy  # Lazy allows us to begin sending the download immediately instead of waiting to download everything
+      .map do |file|
+        [
+          open(file[:url]),
+          [ zip_prefix, file[:eye], file[:position], file[:filename] ].join('/'),
+        ]
+      end
     zipline(file_mappings, "#{zip_prefix}.zip")
   end
 
