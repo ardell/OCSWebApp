@@ -3,19 +3,6 @@ angular
   .controller('PatientsShowController', ['$scope', '$routeParams', 'Patient', function($scope, $routeParams, Patient) {
     $scope.patient = null;
 
-    $scope.download = function() {
-      alert("Zip File is being generated! This may take awhile...")
-      var objectId = $routeParams.id;
-      $.post(
-        "https://cellscope4-8080.terminal.com/zip",
-        { objectId: objectId },
-        function(data) {
-          alert("Finished Generating Zip File! Zip File containing all images is now being downloaded");
-          document.getElementById('my_iframe').src = data.zipName;
-        }
-      );
-    };
-
     // Load the patient object from the back-end
     var query   = new Parse.Query(Patient);
     query.get($routeParams.id, {
