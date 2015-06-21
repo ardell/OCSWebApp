@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
+  scope format: true, constraints: { format: 'zip' } do
+    get '/patients/:id' => "patients#stream_zip_archive"
+  end
+
   # You can have the root of your site routed with "root"
   root 'home#index'
 
