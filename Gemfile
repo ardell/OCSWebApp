@@ -17,6 +17,9 @@ gem 'jquery-rails'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# Heroku wants us to install rails_12factor
+gem 'rails_12factor'
+
 # Use Puma as the app server
 gem 'puma'
 
