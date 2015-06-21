@@ -9,7 +9,7 @@
   </div>
 
   <div class="col-xs-6 text-right">
-    <a ng-href="/patients/{{patient.id}}.zip" class="btn btn-default">
+    <a ng-href="/patients/{{patient.id}}.zip" class="btn btn-default" ng-show="numImages > 0">
       <i class="glyphicon glyphicon-download-alt"></i>
       Download All
     </a>

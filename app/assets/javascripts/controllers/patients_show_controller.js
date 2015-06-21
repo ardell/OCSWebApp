@@ -50,6 +50,7 @@ angular
                   inferior: filterImages('OS', 'Inferior')
                 }
               };
+              $scope.numImages = images.length;
             });
           }
         });
