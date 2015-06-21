@@ -20,6 +20,9 @@ gem 'jquery-rails'
 # Heroku wants us to install rails_12factor
 gem 'rails_12factor'
 
+# Use postgres as our database (even though we don't really need it yet)
+gem 'pg'
+
 # Use Puma as the app server
 gem 'puma'
 
