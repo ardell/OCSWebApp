@@ -11,6 +11,9 @@ class PatientsController < ApplicationController
     zip_prefix = _zip_prefix
     files      = _info_for_files
 
+    # 404 if there aren't any images to send
+    raise ActionController::RoutingError.new('Not Found') if files.empty?
+
     require 'open-uri'
     file_mappings = files
       .lazy  # Lazy allows us to begin sending the download immediately instead of waiting to download everything
