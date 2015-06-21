@@ -1,6 +1,6 @@
 angular
   .module('ocs')
-  .controller('LogInController', function(User, $location, $scope) {
+  .controller('LogInController', ['User', '$location', '$scope', function(User, $location, $scope) {
     $scope.username   = null;
     $scope.password   = null;
     $scope.inProgress = false;
@@ -26,5 +26,5 @@ angular
         }
       });
     };
-  });
+  }]);
 

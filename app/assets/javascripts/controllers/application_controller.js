@@ -1,6 +1,6 @@
 angular
   .module('ocs')
-  .controller('ApplicationController', function(User, $scope) {
+  .controller('ApplicationController', ['User', '$scope', function(User, $scope) {
     $scope.user = User;
-  });
+  }]);
 

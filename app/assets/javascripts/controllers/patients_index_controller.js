@@ -1,6 +1,6 @@
 angular
   .module('ocs')
-  .controller('PatientsIndexController', function($scope, Patient) {
+  .controller('PatientsIndexController', ['$scope', 'Patient', function($scope, Patient) {
     $scope.filterByStudy = '';
     $scope.search        = '';
     $scope.sortColumn    = 'examDate';
@@ -68,5 +68,5 @@ angular
         $scope.sortAscending = ($scope.sortColumn != 'examDate');
       }
     };
-  });
+  }]);
 

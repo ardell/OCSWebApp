@@ -1,6 +1,6 @@
 angular
   .module('ocs')
-  .config(function($routeProvider) {
+  .config(['$routeProvider', function($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/index.html',
@@ -27,8 +27,8 @@ angular
         controller:  'ImagesShowController'
       })
       ;
-  })
-  .run(function($rootScope, $location) {
+  }])
+  .run(['$rootScope', '$location', function($rootScope, $location) {
     // Redirect unauthenticated users to the login page
     $rootScope.$on("$routeChangeStart", function(event, next, current) {
       // Initialize Parse (seems to be idempotent) before we check login state
@@ -51,6 +51,6 @@ angular
         $location.path("/patients");
       }
     });
-  })
+  }])
   ;
 

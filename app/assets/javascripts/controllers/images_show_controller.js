@@ -1,6 +1,6 @@
 angular
   .module('ocs')
-  .controller('ImagesShowController', function($scope, $routeParams, Patient, EyeImage) {
+  .controller('ImagesShowController', ['$scope', '$routeParams', 'Patient', 'EyeImage', function($scope, $routeParams, Patient, EyeImage) {
     $scope.patient  = null;
     $scope.eyeImage = null;
 
@@ -35,5 +35,5 @@ angular
     //     that.$el.html(template); //inject html into the bound element
     //   }
     // });
-  });
+  }]);
 

@@ -1,6 +1,6 @@
 angular
   .module('ocs')
-  .controller('PatientsShowController', function($scope, $routeParams, Patient) {
+  .controller('PatientsShowController', ['$scope', '$routeParams', 'Patient', function($scope, $routeParams, Patient) {
     $scope.patient = null;
 
     $scope.download = function() {
@@ -71,5 +71,5 @@ angular
         throw new Error(error.message);
       }
     });
-  });
+  }]);
 
