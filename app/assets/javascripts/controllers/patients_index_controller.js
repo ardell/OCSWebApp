@@ -17,7 +17,7 @@ angular
         success: function(arr) {
           $scope.$apply(function() {
             $scope.patients = _.map(arr, function(obj) {
-              var attrs = obj.attributes;
+              var attrs = angular.extend({}, obj.attributes);
               delete attrs.EyeImages;
               attrs.id       = obj.id;
               attrs.fullName = [attrs.lastName, attrs.firstName].join(', ');

@@ -11,7 +11,7 @@
 // about supported directives.
 //
 //= require jquery
-//= require vendor/parse-1.3.0.min
+//= require vendor/parse-1.9.2.min
 //= require vendor/underscore-1.4.2.min
 //= require vendor/angular-1.3.15.min
 //= require vendor/angular-route-1.3.15.min

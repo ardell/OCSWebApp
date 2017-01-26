@@ -5,6 +5,7 @@ angular
       'kj1p0NcAg3KwmTebw5N4MtbZCkx2WASRWSxTWuto', 
       'Lte1YsyrZ0LvG72Zjd4DZ6hTsyvI257MG07lCK61'
     );
+    Parse.serverURL = "https://ocular-cellscope-server.herokuapp.com/parse"
 
     return {
       isLoggedIn: !!Parse.User.current(),
